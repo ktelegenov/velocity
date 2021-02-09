@@ -27,10 +27,12 @@
 
 
 	<node pkg="topic_tools" type="relay" name="mocap_topic_relay" args="/vrpn_client_node/$(arg rbname)/pose /mavros/vision_pose/pose" />
+	<node pkg="rosbag" type="record" name="rosbag_record_velocity"
+		args="record -o /home/odroid/newexp.bag /mavros/local_position/velocity_body" />
 
 
 
 
-	<!-- node pkg="velocity" type="mission.py" name="mission_node" required="true" output="screen" /> -->
+	<node pkg="velocity" type="mission.py" name="mission_node" required="true" output="screen" />
 
 </launch>
